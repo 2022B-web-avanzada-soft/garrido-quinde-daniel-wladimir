@@ -2,7 +2,7 @@ import {ContenedorContext, ContenedorContextObject} from './ContenedorContext';
 import {useEffect, useState} from "react";
 import EComponenteA from "./EComponenteA";
 export default function (){
-    const [nombreUsuario, setNombreUsuario] = useState("Adrian")
+    const [nombreUsuario, setNombreUsuario] = useState("Daniel")
     const objetoContenedorContext: ContenedorContextObject = { nombreUsuario, setNombreUsuario };
 
     useEffect(
