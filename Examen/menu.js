@@ -6,8 +6,8 @@ const {prompt} = require("inquirer");
 
 async function main(){
     const datos = await leer("./datos.txt")
-   // menuInicial(datos)
-    modificarApps(datos,0)
+   menuInicial(datos)
+  //  modificarApps(datos,0)
 }
 
 main()
@@ -58,7 +58,7 @@ function menuInicial(sistemasOperativos){
                 //delete
                 imprimir(sistemasOperativos)
                 inquirer.prompt({type:'number', name:'opcionBorrar',
-                    message:'Que facultad desea eliminar? (Seleccione el id de la facultad)'})
+                    message:'Que so desea eliminar? (Seleccione el id de la so)'})
                     .then(answers =>{
                         const ans = answers.opcionBorrar
                         if (ans > 0 && ans<= sistemasOperativos.length){
@@ -144,12 +144,12 @@ function escribirArchivo(path, nuevoContenido){
 function imprimir(sistemasOperativos){
     if (sistemasOperativos.length===1){
         value = sistemasOperativos[0]
-        console.log("Id FACULTAD:" + value.id, "nombre: " + value.nombre,
+        console.log("Id SO:" + value.id, "nombre: " + value.nombre,
             "Es libre: " + value.esSoftwareLibre, "Fecha lanzmiento: " + value.fechaLanzamiento)
         console.log("Aplicaciones: \n", imprimirApps(value.aplicaciones))
     }else {
         sistemasOperativos.forEach((value) => {
-            console.log("Id FACULTAD:" + value.id, "nombre: " + value.nombre,
+            console.log("Id SO:" + value.id, "nombre: " + value.nombre,
                 "Es libre: " + value.esSoftwareLibre, "Fecha lanzmiento: " + value.fechaLanzamiento)
             console.log("Aplicaciones: \n", imprimirApps(value.aplicaciones))
         })
@@ -237,7 +237,9 @@ function crear_nuevo_SO(sistemasOperativos){
         aux.nombre = answers.nombre
         aux.esSoftwareLibre = answers.esLibre
         aux.fechaLanzamiento = new Date(answers.fecha)
-        aux.aplicaciones = {}
+        aux.aplicaciones =  [
+            ]
+
         console.log("para crear las apps, modificar este arreglo")
         console.log("nuevo so",aux)
         sistemasOperativos[sistemasOperativos.length]=aux
@@ -268,10 +270,10 @@ function modificarApps(sistemasOperativos,indice){
             crearNuevaApp(sistemasOperativos, indice)
 
         }else if (valor ===2){
-            console.log(imprimirApps(aplicacionsDelSistema))
-            volverMenuApps(sistemaModificar)
+            imprimirApps2(aplicacionsDelSistema)
+            volverMenuApps(sistemasOperativos,indice)
         }else if(valor===3){
-            console.log(imprimirApps(aplicacionsDelSistema))
+           imprimirApps2(aplicacionsDelSistema)
 
             inquirer.prompt(
                 {
@@ -288,7 +290,7 @@ function modificarApps(sistemasOperativos,indice){
                 })
 
         }else if(valor===4){
-            console.log(imprimirApps(aplicacionsDelSistema))
+            imprimirApps2(aplicacionsDelSistema)
             inquirer.prompt({
                 type:'number',
                 name:'appEliminar',
@@ -296,7 +298,7 @@ function modificarApps(sistemasOperativos,indice){
             }).then(answers=>{
                 if (answers.appEliminar>0 && answers.appEliminar<=sistemaModificar.aplicaciones.length){
                     delete sistemaModificar.aplicaciones[answers.appEliminar-1]
-                    console.log(imprimirApps(sistemaModificar.aplicaciones))
+                    imprimirApps2(aplicacionsDelSistema)
                    volverMenuApps(sistemasOperativos,indice)
                 }else {
                     console.log("No existe esa app");
@@ -396,4 +398,22 @@ function crearNuevaApp(sistemasOperativos,indice){
             sistemasOperativos[indice].aplicaciones[sistemasOperativos[indice].aplicaciones.length] = answers
             volverMenuApps(sistemasOperativos,indice)
         })
+}
+
+function imprimirApps2(listaAplicaciones){
+   if (listaAplicaciones.length===0){
+       console.log("no hay apps")
+   }else if (listaAplicaciones.length ===1){
+       console.log(listaAplicaciones[0])
+   }else if (listaAplicaciones.length>1){
+    let valor = ""
+    listaAplicaciones.forEach((value) => {
+        valor = valor + "\t\tid: " + value.id + " nombre: " + value.nombre +
+            " Es libre: " + value.esLibre + " Fecha:" + value.fechaInstalacion + " version: " + value.version + "\n"
+
+    })
+    console.log(valor)
+   }else {
+       console.log("no hay apps")
+   }
 }
