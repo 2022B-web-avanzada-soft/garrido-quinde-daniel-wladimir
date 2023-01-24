@@ -22,4 +22,18 @@ Link lucidchart:<br>
 
 ![](Recursos/baseDatos.png ) 
 ## Prototipo
-Link Figma:
+
+## Login
+<img src="Recursos/web/login.png" alt="Login" width="874" height="538" title="Login">
+<br>
+
+## Noticias
+<img src="Recursos/web/noticias.png" alt="Noticias" width="874" height="538" title="Noticias">
+<br>
+
+## Nuevo Reporte
+<img src="Recursos/web/nuevoReporte.png" alt="Noticias" width="874" height="538" title="Noticias" >
+<br>
+
+## Reportes
+<img src="Recursos/web/reportes.png" alt="Reportes" width="874" height="538" title="Reportes" >
