@@ -16,13 +16,14 @@ interface Usuario {
         nombre: "Daniel",
         edad: 22,
         graduado:false
-    } as Usuario)
+    } as Usuario) //poner el tipo de dato si el doctyping no cacha
 
 
-        useEffect(
+        useEffect(//ayuda a escuchar cambios de las variables que escuchamos
             ()=>{
                 console.log('cambio arreglo',arregloNumeros)
-            },[arregloNumeros]
+            }
+            ,[arregloNumeros] //si el arreglo esta vacio se ejecuta UNA SOLA VEZ al principio
         )
 
         useEffect(

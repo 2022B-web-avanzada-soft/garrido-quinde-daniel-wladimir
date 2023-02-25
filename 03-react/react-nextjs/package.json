@@ -11,8 +11,11 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.9",
+    "@mui/material": "^5.11.10",
+    "konsta": "^1.0.2",
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

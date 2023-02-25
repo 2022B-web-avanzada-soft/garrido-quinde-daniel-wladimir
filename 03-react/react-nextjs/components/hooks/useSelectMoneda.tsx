@@ -6,7 +6,7 @@ export default function (label:string,opciones:MonedasInterface[]){
     const [moneda,setMoneda] = useState('');
     const generarJSXElementMonedas: () => JSX.Element[] = () =>{
         return opciones.map(
-            (moneda:MonedasInterface)=>(
+            (moneda)=>(
                  <option key={moneda.id} id={moneda.id} value={moneda.id}>
                     {moneda.nombre}
                 </option>

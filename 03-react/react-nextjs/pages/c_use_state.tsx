@@ -6,8 +6,8 @@ export default function (){
     return (
         <>
             <Layout title={"Use state"}>
-            <h1>Use State</h1>
-            <EjemploUseState></EjemploUseState>
+                <h1>Use State</h1>
+                <EjemploUseState></EjemploUseState>
             </Layout>
         </>
     )

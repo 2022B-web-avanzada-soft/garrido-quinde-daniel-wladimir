@@ -22,7 +22,7 @@ export default function a_hola_mundo(){
             <Layout title={'Hola mundo'}>
             <h1 className={"text-amber-800 text-3xl"}>HOllaaaa</h1>
             <EstilosEjemplos></EstilosEjemplos>
-            <Componente iteraciones={3} mostrar={true} url={'http://google.com'}
+            <Componente iteraciones={3} mostrar={false} url={'http://google.com'}
             ></Componente>
             </Layout>
         </>
