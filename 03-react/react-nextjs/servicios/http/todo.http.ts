@@ -16,3 +16,20 @@ export async function TodoHttp(
     const respuesta = await fetch(url)
     return await (respuesta.json()) as Todo[]
 }
+
+
+export interface Product{
+    "id":number,
+    "title":string,
+    "price":number,
+    "thumbnail":string,
+}
+
+export async function ProductHttp(
+    id?:string
+):Promise<Product[]>{
+    const url = `https://dummyjson.com/products${id ? '/' + id :''}?select=title,price,thumbnail`
+    const respuesta = await fetch(url)
+    return await (respuesta.json()) as Product[]
+}
+
