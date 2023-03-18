@@ -71,15 +71,6 @@ export class UsuarioController{
     }
 
 
-
-
-
-
-
-
-
-
-
     @Post("/") // POST /usuario
     @HttpCode(201)
     async create(
@@ -107,7 +98,7 @@ export class UsuarioController{
         @Query() queryParams
     ) {
         const consulta: FindManyOptions<UsuarioEntity> = {
-            //relations: ['notas'],
+            relations: ['notas'],
             // select: ['id'], // Select
             // relations: { //  Relaciones
             //     notas: true

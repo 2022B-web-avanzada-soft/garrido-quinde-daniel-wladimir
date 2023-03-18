@@ -258,10 +258,10 @@ function modificarApps(sistemasOperativos,indice){
         name:'crudApps',
         message: 'Que accion realizara?',
         choices:[
-            {value:1,name:'Nueva app'},
+            {value:1,name:'Nueva [id_so]'},
             {value:2,name:'Mostrar Apps'},
             {value:3,name:'Editar APPS'},
-            {value:4,name:'Borrar app'},
+            {value:4,name:'Borrar [id_so]'},
             {value: 5,name: 'Salir'}
         ]
     }).then(answers => {
@@ -279,7 +279,7 @@ function modificarApps(sistemasOperativos,indice){
                 {
                     type:'number',
                     name:'appModificar',
-                    message:'Que app va a modificar?, seleccione el id de la app: '
+                    message:'Que [id_so] va a modificar?, seleccione el id de la [id_so]: '
                 }
             )
                 .then(answers=>{
@@ -294,14 +294,14 @@ function modificarApps(sistemasOperativos,indice){
             inquirer.prompt({
                 type:'number',
                 name:'appEliminar',
-                message:'Que app desea eliminar?, eliga el ID'
+                message:'Que [id_so] desea eliminar?, eliga el ID'
             }).then(answers=>{
                 if (answers.appEliminar>0 && answers.appEliminar<=sistemaModificar.aplicaciones.length){
                     delete sistemaModificar.aplicaciones[answers.appEliminar-1]
                     imprimirApps2(aplicacionsDelSistema)
                    volverMenuApps(sistemasOperativos,indice)
                 }else {
-                    console.log("No existe esa app");
+                    console.log("No existe esa [id_so]");
                     volverMenuApps(sistemasOperativos,indice)
                 }
             })

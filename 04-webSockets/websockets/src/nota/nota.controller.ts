@@ -19,6 +19,8 @@ export class NotaController{
     @Get("/")
     @HttpCode(200)
     async find(){
-        return this.NotaService.find({})
+        return this.NotaService.find({
+            relations:['usuario']
+        })
     }
 }
